@@ -1,7 +1,3 @@
-const username = 'USER_NAME';
-const password = 'YOUR_OAUTH_TOKEN';
-const channels = ['YOUR_CHANNELS'];
-
 // Define configuration options
 const opts = {
   identity: {
