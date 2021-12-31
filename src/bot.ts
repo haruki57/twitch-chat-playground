@@ -22,7 +22,7 @@ export const init = () => {
   client.connect();
 
   // Called every time a message comes in
-  function onMessageHandler(target, context, msg, self) {
+  function onMessageHandler(target: any, context: any, msg: string, self: any) {
     if (self) { return; } // Ignore messages from the bot
 
     // Remove whitespace from chat message
@@ -45,8 +45,8 @@ export const init = () => {
   }
 
   // Called every time the bot connects to Twitch chat
-  function onConnectedHandler(addr, port) {
+  function onConnectedHandler(addr: any, port: any) {
     console.log(`* Connected to ${addr}:${port}`);
-    document.querySelector('#isConnected').innerText = 'Connected!';
+    (document.querySelector('#isConnected') as HTMLElement).innerText = 'Connected!';
   }
 }
