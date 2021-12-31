@@ -1,4 +1,5 @@
 import { username, password, channels } from './credentials';
+import { onMessageHandler } from './sketch';
 import tmi from 'tmi.js';
 
 export const init = () => {
@@ -21,22 +22,22 @@ export const init = () => {
   // Connect to Twitch:
   client.connect();
 
-  // Called every time a message comes in
-  function onMessageHandler(target: string, context: Context, msg: string, self: any) {
-    if (self) { return; } // Ignore messages from the bot
+  // // Called every time a message comes in
+  // function onMessageHandler(target: string, context: TwitchChatContext, msg: string, self: any) {
+  //   if (self) { return; } // Ignore messages from the bot
 
-    // Remove whitespace from chat message
-    const commandName = msg.trim();
+  //   // Remove whitespace from chat message
+  //   const commandName = msg.trim();
 
-    // If the command is known, let's execute it
-    if (commandName === '!dice') {
-      const num = rollDice();
-      client.say(target, `You rolled a ${num}`);
-      console.log(`* Executed ${commandName} command`);
-    } else {
-      console.log(`* Unknown command ${commandName}`);
-    }
-  }
+  //   // If the command is known, let's execute it
+  //   if (commandName === '!dice') {
+  //     const num = rollDice();
+  //     client.say(target, `You rolled a ${num}`);
+  //     console.log(`* Executed ${commandName} command`);
+  //   } else {
+  //     console.log(`* Unknown command ${commandName}`);
+  //   }
+  // }
 
   // Function called when the "dice" command is issued
   function rollDice() {
@@ -47,10 +48,10 @@ export const init = () => {
   // Called every time the bot connects to Twitch chat
   function onConnectedHandler(addr: any, port: any) {
     console.log(`* Connected to ${addr}:${port}`);
-    (document.querySelector('#isConnected') as HTMLElement).innerText = 'Connected!';
+    // (document.querySelector('#isConnected') as HTMLElement).innerText = 'Connected!';
   }
 }
-interface Context {
+export interface TwitchChatContext {
   'badge-info': BadgeInfo;
   badges: Badges;
   'client-nonce': string;
