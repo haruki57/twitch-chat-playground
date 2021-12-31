@@ -1,0 +1,28 @@
+{
+  "name": "twitch-chat-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haruki57/twitch-chat-playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haruki57/twitch-chat-playground/issues"
+  },
+  "homepage": "https://github.com/haruki57/twitch-chat-playground#readme",
+  "devDependencies": {
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "tmi.js": "^1.8.5"
+  }
+}
